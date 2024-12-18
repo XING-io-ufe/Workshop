@@ -13,7 +13,8 @@
 
         /* Full-width input fields */
         input[type=text],
-        input[type=password] {
+        input[type=password],
+        input[type=number] {
             width: 100%;
             padding: 12px 20px;
             margin: 8px 0;
@@ -145,9 +146,8 @@
                 <a href="#">
                     <li>About</li>
                 </a>
-                <a href="javascript:void(0);" onclick="document.getElementById('addMemberModal').style.display='block'">
-                    <li> <button>add member + <table class="html"></table></button>Add Member + table.html</li>
-                </a>
+                <!-- Remove the nested anchor tag -->
+                <li><button onclick="document.getElementById('addMemberModal').style.display='block'">Add Member +</button></li>
                 <a href="#">
                     <li>Contact</li>
                 </a>
@@ -164,8 +164,7 @@
             <div class="left-banner">
                 <h2>Digital Media Agency</h2>
                 <h1>We Boost Your Website <br> Traffic</h1>
-                <p>This template is brought to you by TemplateMo website. Feel free to use this <br> for a commercial
-                    purpose.</p>
+                <p>This template is brought to you by TemplateMo website. Feel free to use this <br> for a commercial purpose.</p>
                 <div class="link">
                     <a href="">Free quote</a>
                 </div>
@@ -184,30 +183,96 @@
 
     <!-- Add Member Modal -->
     <div id="addMemberModal" class="modal">
-        <form class="modal-content animate" action="./table.html" method="post">
+        <form class="modal-content animate" action="#" method="post" id="addMemberForm">
             <div class="imgcontainer">
                 <span onclick="document.getElementById('addMemberModal').style.display='none'" class="close" title="Close Modal">&times;</span>
                 <img src="img_avatar2.png" alt="Avatar" class="avatar">
-            </div>
-
-            <div class="container">
-                <label for="memberName"><b>Full Name</b></label>
-                <input type="text" placeholder="Enter Full Name" name="memberName" required>
-
-                <label for="memberEmail"><b>Email</b></label>
-                <input type="email" placeholder="Enter Email" name="memberEmail" required>
-
-                <label for="memberPhone"><b>Phone</b></label>
-                <input type="text" placeholder="Enter Phone Number" name="memberPhone" required>
-
-                <button type="submit">Add Member</button>
-            </div>
-
-            <div class="container" style="background-color:#f1f1f1">
-                <button type="button" onclick="document.getElementById('addMemberModal').style.display='none'" class="cancelbtn">Cancel</button>
-            </div>
-        </form>
+                <div class="container">
+                    <h2>Add Member</h2>
+                    
+                    <!-- Input Form for Adding Member -->
+                    <div class="input-form">
+                        <input type="text" id="lastname" placeholder="Enter Last Name" required>
+                        <input type="text" id="firstname" placeholder="Enter First Name" required>
+                        <input type="number" id="age" placeholder="Enter Age" required>
+                        <button type="button" id="register">Add Member</button>
+                    </div>
+            
+                    <!-- Table to Display Members -->
+                    <table id="userTable">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Last Name</th>
+                                <th>First Name</th>
+                                <th>Age</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Dynamic rows will be added here -->
+                        </tbody>
+                    </table>
+                </div>
+            
+                <div class="container" style="background-color:#f1f1f1">
+                    <button type="button" onclick="document.getElementById('addMemberModal').style.display='none'" class="cancelbtn">Cancel</button>
+                </div>
+            </form>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const registerBtn = document.getElementById("register");
+            const tableBody = document.querySelector("#userTable tbody");
+            let userCount = 0;
+        
+            registerBtn.addEventListener("click", function () {
+                const lastName = document.getElementById("lastname").value.trim();
+                const firstName = document.getElementById("firstname").value.trim();
+                const age = document.getElementById("age").value.trim();
+        
+                if (lastName && firstName && age) {
+                    userCount++;
+                    const row = document.createElement("tr");
+        
+                    row.innerHTML = `
+                        <td>${userCount}</td>
+                        <td>${lastName}</td>
+                        <td>${firstName}</td>
+                        <td>${age}</td>
+                        <td><span class="delete-btn">✖</span></td>
+                    `;
+        
+                    tableBody.appendChild(row);
+        
+                    // Add delete functionality for the new row's delete button
+                    row.querySelector(".delete-btn").addEventListener("click", function() {
+                        deleteRow(row);
+                    });
+        
+                    document.getElementById("lastname").value = "";
+                    document.getElementById("firstname").value = "";
+                    document.getElementById("age").value = "";
+                } else {
+                    alert("Бүх талбарыг бөглөнө үү!");
+                }
+            });
+        
+            function deleteRow(row) {
+                row.remove();
+                updateRowNumbers();
+            }
+        
+            function updateRowNumbers() {
+                let index = 1;
+                tableBody.querySelectorAll("tr").forEach(row => {
+                    row.firstElementChild.textContent = index++;
+                });
+                userCount = index - 1;
+            }
+        });
+    </script>
 
     <!-- Login Modal -->
     <div id="loginModal" class="modal">
