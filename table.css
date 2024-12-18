@@ -77,3 +77,48 @@ table td {
 .delete-btn:hover {
     color: darkred;
 }
+/* Style for the table */
+#userTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Style for table headers */
+#userTable th {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+/* Style for table rows */
+#userTable td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+/* Style for table row hover effect */
+#userTable tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Style for delete button inside table */
+.delete-btn {
+    color: red;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Style for alternate rows */
+#userTable tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Style for table border */
+#userTable th, #userTable td {
+    border: 1px solid #ddd;
+}
