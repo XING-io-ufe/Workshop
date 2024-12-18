@@ -1,71 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StartUp</title>
-    <link rel="stylesheet" href="./src/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
-        }
-
-        /* Full-width input fields */
-        input[type=text],
-        input[type=password] {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
         }
 
-        /* Set a style for all buttons */
-        button {
-            background-color: #04AA6D;
+        /* Navigation styles */
+        nav {
+            background-color: #333;
+            padding: 10px;
+        }
+
+        nav a {
             color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            cursor: pointer;
-            width: 100%;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 10px;
+            display: inline-block;
         }
 
-        button:hover {
-            opacity: 0.8;
+        nav a:hover {
+            background-color: #575757;
         }
 
-        /* Extra styles for the cancel button */
-        .cancelbtn {
-            width: auto;
-            padding: 10px 18px;
-            background-color: #f44336;
-        }
-
-        /* Center the image and position the close button */
-        .imgcontainer {
-            text-align: center;
-            margin: 24px 0 12px 0;
-            position: relative;
-        }
-
-        img.avatar {
-            width: 40%;
-            border-radius: 50%;
-        }
-
-        .container {
-            padding: 16px;
-        }
-
-        span.psw {
+        .register {
             float: right;
-            padding-top: 16px;
         }
 
-        /* The Modal (background) */
+        /* Banner styles */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .banner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .left-banner h2, .left-banner h1 {
+            color: #333;
+        }
+
+        .left-banner p {
+            font-size: 1.2em;
+        }
+
+        .right-banner img {
+            width: 50%;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        /* Modal styles */
         .modal {
             display: none;
             position: fixed;
@@ -74,27 +72,25 @@
             top: 0;
             width: 100%;
             height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.4);
+            background-color: rgba(0,0,0,0.4);
             padding-top: 60px;
         }
 
-        /* Modal Content/Box */
         .modal-content {
-            background-color: #fefefe;
+            background-color: #fff;
             margin: 5% auto;
-            border: 1px solid #888;
+            padding: 20px;
             width: 80%;
+            max-width: 500px;
         }
 
-        /* The Close Button (x) */
         .close {
-            position: absolute;
-            right: 25px;
-            top: 0;
             color: #000;
-            font-size: 35px;
+            font-size: 30px;
             font-weight: bold;
+            position: absolute;
+            top: 0;
+            right: 20px;
         }
 
         .close:hover,
@@ -103,55 +99,80 @@
             cursor: pointer;
         }
 
-        /* Add Zoom Animation */
-        .animate {
-            animation: animatezoom 0.6s
+        .container label {
+            display: block;
+            margin-bottom: 8px;
         }
 
-        @keyframes animatezoom {
-            from {
-                transform: scale(0)
-            }
-
-            to {
-                transform: scale(1)
-            }
+        .container input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
         }
 
-        /* Change styles for span and cancel button on extra small screens */
-        @media screen and (max-width: 300px) {
-            span.psw {
-                display: block;
-                float: none;
-            }
+        .container button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px;
+            width: 100%;
+            border: none;
+            cursor: pointer;
+        }
 
-            .cancelbtn {
-                width: 100%;
-            }
+        .container button:hover {
+            opacity: 0.8;
+        }
+
+        .cancelbtn {
+            background-color: #f44336;
+            padding: 10px 18px;
+            width: auto;
+        }
+
+        /* Table styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        .delete-btn {
+            cursor: pointer;
+            color: red;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
         }
     </style>
 </head>
-
 <body>
+
     <header>
         <nav>
-            <div class="logo">
-                <a href="#"><img src="./src/img/logo.png" alt="" width="100%"></a>
-            </div>
-            <ul>
-                <a href="#">
-                    <li>Home</li>
-                </a>
-                <a href="#">
-                    <li>About</li>
-                </a>
-                <a href="javascript:void(0);" onclick="document.getElementById('addMemberModal').style.display='block'">
-                    <li> <button>add member + <table class="html"></table></button>Add Member + table.html</li>
-                </a>
-                <a href="#">
-                    <li>Contact</li>
-                </a>
-            </ul>
+            <a href="#">Home</a>
+            <a href="#">Services</a>
+            <a href="#">About</a>
             <div class="register">
                 <a href="javascript:void(0);" onclick="document.getElementById('loginModal').style.display='block'">Login</a>
                 <a href="javascript:void(0);" onclick="document.getElementById('registerModal').style.display='block'">Register</a>
@@ -167,13 +188,14 @@
                 <p>This template is brought to you by TemplateMo website. Feel free to use this <br> for a commercial
                     purpose.</p>
                 <div class="link">
-                    <a href="">Free quote</a>
+                    <a href="#">Free quote</a>
                 </div>
             </div>
             <div class="right-banner">
                 <img src="./src/img/rocket.png" alt="" width="100%">
             </div>
         </div>
+
         <div class="contact">
             <div class="contact-header">
                 <h2>Contact Us</h2>
@@ -184,7 +206,7 @@
 
     <!-- Add Member Modal -->
     <div id="addMemberModal" class="modal">
-        <form class="modal-content animate" action="./table.html" method="post">
+        <form class="modal-content animate" action="/action_page.php" method="post">
             <div class="imgcontainer">
                 <span onclick="document.getElementById('addMemberModal').style.display='none'" class="close" title="Close Modal">&times;</span>
                 <img src="img_avatar2.png" alt="Avatar" class="avatar">
@@ -239,7 +261,7 @@
 
     <!-- Register Modal -->
     <div id="registerModal" class="modal">
-        <form class="modal-content animate" action="./index.html" method="post">
+        <form class="modal-content animate" action="" method="post">
             <div class="imgcontainer">
                 <span onclick="document.getElementById('registerModal').style.display='none'" class="close" title="Close Modal">&times;</span>
                 <img src="img_avatar2.png" alt="Avatar" class="avatar">
@@ -271,8 +293,6 @@
         </div>
     </footer>
 
-    <script src="./src/javascript/main.js"></script>
-
     <script>
         // Get the modals
         var loginModal = document.getElementById('loginModal');
@@ -289,7 +309,37 @@
                 addMemberModal.style.display = "none";
             }
         }
-    </script>
-</body>
 
-</html>
+        // Add user functionality
+        document.addEventListener("DOMContentLoaded", function() {
+            const registerBtn = document.getElementById("register");
+            const tableBody = document.querySelector("#userTable tbody");
+            let userCount = 0;
+
+            registerBtn.addEventListener("click", function () {
+                const lastName = document.getElementById("lastname").value.trim();
+                const firstName = document.getElementById("firstname").value.trim();
+                const age = document.getElementById("age").value.trim();
+
+                if (lastName && firstName && age) {
+                    userCount++;
+                    const row = document.createElement("tr");
+
+                    row.innerHTML = `
+                        <td>${userCount}</td>
+                        <td>${lastName}</td>
+                        <td>${firstName}</td>
+                        <td>${age}</td>
+                        <td><span class="delete-btn" onclick="deleteRow(this)">✖</span></td>
+                    `;
+
+                    tableBody.appendChild(row);
+
+                    document.getElementById("lastname").value = "";
+                    document.getElementById("firstname").value = "";
+                    document.getElementById("age").value = "";
+                } else {
+                    alert("Бүх талбарыг бөглөнө үү!");
+                }
+            });
+
