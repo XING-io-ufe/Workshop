@@ -5,425 +5,160 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StartUp</title>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./src/css/style.css">
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        /* Style for the table */
-#userTable {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
+    <link rel="shortcut icon" href="./src/img/favicon.ico">
+    <link rel="stylesheet" href="./src/css/responsive.css">
 
-/* Style for table headers */
-#userTable th {
-    background-color: #04AA6D;
-    color: white;
-    padding: 12px;
-    text-align: left;
-    border: 1px solid #ddd;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-/* Style for table rows */
-#userTable td {
-    padding: 12px;
-    text-align: left;
-    border: 1px solid #ddd;
-    color: #333;
-    font-size: 14px;
-}
-
-/* Style for table row hover effect */
-#userTable tr:hover {
-    background-color: #f1f1f1;
-}
-
-/* Style for delete button inside table */
-.delete-btn {
-    color: red;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 16px;
-    text-align: center;
-}
-
-.delete-btn:hover {
-    color: darkred;
-}
-
-/* Style for alternate rows */
-#userTable tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-/* Style for table borders */
-#userTable th, #userTable td {
-    border: 1px solid #ddd;
-}
-
-/* Add a small gap between columns */
-#userTable td, #userTable th {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-/* Center the delete button in the last column */
-#userTable .delete-btn {
-    display: block;
-    margin: 0 auto;
-    width: fit-content;
-}
-
-
-        /* Full-width input fields */
-        input[type=text],
-        input[type=password],
-        input[type=number] {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-        }
-
-        /* Set a style for all buttons */
-        button {
-            background-color: #04AA6D;
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        button:hover {
-            opacity: 0.8;
-        }
-
-        /* Extra styles for the cancel button */
-        .cancelbtn {
-            width: auto;
-            padding: 10px 18px;
-            background-color: #f44336;
-        }
-
-        /* Center the image and position the close button */
-        .imgcontainer {
-            text-align: center;
-            margin: 24px 0 12px 0;
-            position: relative;
-        }
-
-        img.avatar {
-            width: 40%;
-            border-radius: 50%;
-        }
-
-        .container {
-            padding: 16px;
-        }
-
-        span.psw {
-            float: right;
-            padding-top: 16px;
-        }
-
-        /* The Modal (background) */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.4);
-            padding-top: 60px;
-        }
-
-        /* Modal Content/Box */
-        .modal-content {
-            background-color: #fefefe;
-            margin: 5% auto;
-            border: 1px solid #888;
-            width: 80%;
-        }
-
-        /* The Close Button (x) */
-        .close {
-            position: absolute;
-            right: 25px;
-            top: 0;
-            color: #000;
-            font-size: 35px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: red;
-            cursor: pointer;
-        }
-
-        /* Add Zoom Animation */
-        .animate {
-            animation: animatezoom 0.6s
-        }
-
-        @keyframes animatezoom {
-            from {
-                transform: scale(0)
-            }
-
-            to {
-                transform: scale(1)
-            }
-        }
-
-        /* Change styles for span and cancel button on extra small screens */
-        @media screen and (max-width: 300px) {
-            span.psw {
-                display: block;
-                float: none;
-            }
-
-            .cancelbtn {
-                width: 100%;
-            }
-        }
-        
-    </style>
 </head>
 
 <body>
+
     <header>
         <nav>
             <div class="logo">
                 <a href="#"><img src="./src/img/logo.png" alt="" width="100%"></a>
             </div>
-            <ul>
-                <a href="#">
+            <ul id="nav-bar">
+                <a href="./">
                     <li>Home</li>
                 </a>
                 <a href="#">
-                    <li>About</li>
+                    <li>Table</li>
                 </a>
-                <!-- Remove the nested anchor tag -->
-                <li><button onclick="document.getElementById('addMemberModal').style.display='block'">Add Member +</button></li>
-                <a href="#">
+                <a href="./gallery.html">
+                    <li>Gallery</li>
+                </a>
+                <a href="./contact.html">
                     <li>Contact</li>
                 </a>
+                <div class="register mobile">
+                    <a href="./signup.html">signup</a>
+                    <a class="active" href="./signin.html">signin</a>
+                </div>
             </ul>
             <div class="register">
-                <a href="javascript:void(0);" onclick="document.getElementById('loginModal').style.display='block'">Login</a>
-                <a href="javascript:void(0);" onclick="document.getElementById('registerModal').style.display='block'">Register</a>
+                <a href="./signup.html">signup</a>
+                <a class="active" href="./signin.html">signin</a>
+            </div>
+            <div class="menu" id="menu-icon">
+                <i class="fa fa-solid fa-bars" style="color: #ffffff;"></i>
             </div>
         </nav>
     </header>
-
     <div class="container">
         <div class="banner">
             <div class="left-banner">
                 <h2>Digital Media Agency</h2>
                 <h1>We Boost Your Website <br> Traffic</h1>
-                <p>This template is brought to you by TemplateMo website. Feel free to use this <br> for a commercial purpose.</p>
+                <p>This template is brought to you by TemplateMo website. Feel free to use this for a commercial
+                    purpose. You are not
+                    allowed to redistribute the template ZIP file on any other template website. Thank you.</p>
                 <div class="link">
-                    <a href="">Free quote</a>
+                    <a href="">free quote</a>
                 </div>
+
+
             </div>
             <div class="right-banner">
                 <img src="./src/img/rocket.png" alt="" width="100%">
             </div>
         </div>
-        <div class="contact">
-            <div class="contact-header">
-                <h2>Contact Us</h2>
-                Get In Touch With Us Now
+        <div class="view">
+            <div class="view-item">
+                <i class="fa fa-solid fa-certificate" style="color: #FFD43B;"></i>
+                <h2>1234</h2>
+                <p>Years Experience</p>
+            </div>
+            <div class="view-item">
+                <i class="fa fa-solid fa-users" style="color: #FFD43B;"></i>
+                <h2>1234</h2>
+                <p>Years Experience</p>
+            </div>
+            <div class="view-item">
+                <i class="fa fa-solid fa-eye" style="color: #FFD43B;"></i>
+                <h2>1234</h2>
+                <p>Years Experience</p>
+            </div>
+            <div class="view-item">
+                <i class="fa fa-solid fa-check" style="color: #FFD43B;"></i>
+                <h2>1234</h2>
+                <p>Years Experience</p>
             </div>
         </div>
-    </div>
+        <div class="card">
+            <div class="card-title">
+                <h2>Our Services<i class="fa fa-solid fa-bolt fa-sm" style="color: #B197FC;"></i></h2>
 
-    <!-- Add Member Modal -->
-    <div id="addMemberModal" class="modal">
-        <form class="modal-content animate" action="#" method="post" id="addMemberForm">
-            <div class="imgcontainer">
-                <span onclick="document.getElementById('addMemberModal').style.display='none'" class="close" title="Close Modal">&times;</span>
-                <img src="img_avatar2.png" alt="Avatar" class="avatar">
-                <div class="container">
-                    <h2>Add Member</h2>
-                    
-                    <!-- Input Form for Adding Member -->
-                    <div class="input-form">
-                        <input type="text" id="lastname" placeholder="Enter Last Name" required>
-                        <input type="text" id="firstname" placeholder="Enter First Name" required>
-                        <input type="number" id="age" placeholder="Enter Age" required>
-                        <button type="button" id="register">Add Member</button>
+            </div>
+            <div class="card-list">
+                <div class="card-items">
+                    <img src="./src/img/s1.png" alt="">
+                    <div class="card-details">
+                        <h3>Equipment installation</h3>
+                        <p>There are many variations of passages of Lorem Ipsum available,</p>
                     </div>
-            
-                    <!-- Table to Display Members -->
-                    <table id="userTable">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Last Name</th>
-                                <th>First Name</th>
-                                <th>Age</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Dynamic rows will be added here -->
-                        </tbody>
-                    </table>
                 </div>
-            
-                <div class="container" style="background-color:#f1f1f1">
-                    <button type="button" onclick="document.getElementById('addMemberModal').style.display='none'" class="cancelbtn">Cancel</button>
+                <div class="card-items active">
+                    <img src="./src/img/s2.png" alt="">
+                    <div class="card-details">
+                        <h3>Windmill Energy</h3>
+                        <p>There are many variations of passages of Lorem Ipsum available,</p>
+                    </div>
                 </div>
-            </form>
+                <div class="card-items">
+                    <img src="./src/img/s3.png" alt="">
+                    <div class="card-details">
+                        <h3>Equipment Maintenance</h3>
+                        <p>There are many variations of passages of Lorem Ipsum available,</p>
+                    </div>
+                </div>
+                <div class="card-items">
+                    <img src="./src/img/s4.png" alt="">
+                    <div class="card-details">
+                        <h3>Offshore Engineering</h3>
+                        <p>There are many variations of passages of Lorem Ipsum available,</p>
+                    </div>
+                </div>
+                <div class="card-items">
+                    <img src="./src/img/s5.png" alt="">
+                    <div class="card-details">
+                        <h3>Electrical Wiring</h3>
+                        <p>There are many variations of passages of Lorem Ipsum available,</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="content-title">
+                <h2>Lorem Ipsum</h2>
+            </div>
+            <div class="content-info">
+                <p>Eiusmod cupidatat cillum labore officia et anim commodo dolore sint. Reprehenderit eu irure deserunt
+                    consectetur nulla sunt cupidatat commodo nisi sit et sit anim. Proident do qui in aliqua voluptate
+                    excepteur pariatur duis ullamco. Est ea non exercitation mollit. Ullamco nulla laboris sit sit elit
+                    eiusmod est Lorem et enim aliqua mollit. Laborum non dolore velit irure. Dolore consectetur quis sit
+                    consectetur tempor eiusmod quis ex cillum duis anim.</p>
+                <img src="./src/img/github.png" width="100%" alt="">
+            </div>
+        </div>
+
+
     </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const registerBtn = document.getElementById("register");
-            const tableBody = document.querySelector("#userTable tbody");
-            let userCount = 0;
-        
-            registerBtn.addEventListener("click", function () {
-                const lastName = document.getElementById("lastname").value.trim();
-                const firstName = document.getElementById("firstname").value.trim();
-                const age = document.getElementById("age").value.trim();
-        
-                if (lastName && firstName && age) {
-                    userCount++;
-                    const row = document.createElement("tr");
-        
-                    row.innerHTML = `
-                        <td>${userCount}</td>
-                        <td>${lastName}</td>
-                        <td>${firstName}</td>
-                        <td>${age}</td>
-                        <td><span class="delete-btn">✖</span></td>
-                    `;
-        
-                    tableBody.appendChild(row);
-        
-                    // Add delete functionality for the new row's delete button
-                    row.querySelector(".delete-btn").addEventListener("click", function() {
-                        deleteRow(row);
-                    });
-        
-                    document.getElementById("lastname").value = "";
-                    document.getElementById("firstname").value = "";
-                    document.getElementById("age").value = "";
-                } else {
-                    alert("Бүх талбарыг бөглөнө үү!");
-                }
-            });
-        
-            function deleteRow(row) {
-                row.remove();
-                updateRowNumbers();
-            }
-        
-            function updateRowNumbers() {
-                let index = 1;
-                tableBody.querySelectorAll("tr").forEach(row => {
-                    row.firstElementChild.textContent = index++;
-                });
-                userCount = index - 1;
-            }
-        });
-    </script>
-
-    <!-- Login Modal -->
-    <div id="loginModal" class="modal">
-        <form class="modal-content animate" action="/action_page.php" method="post">
-            <div class="imgcontainer">
-                <span onclick="document.getElementById('loginModal').style.display='none'" class="close" title="Close Modal">&times;</span>
-                <img src="img_avatar2.png" alt="Avatar" class="avatar">
-            </div>
-
-            <div class="container">
-                <label for="uname"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="uname" required>
-
-                <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
-
-                <button type="submit">Login</button>
-                <label>
-                    <input type="checkbox" checked="checked" name="remember"> Remember me
-                </label>
-            </div>
-
-            <div class="container" style="background-color:#f1f1f1">
-                <button type="button" onclick="document.getElementById('loginModal').style.display='none'" class="cancelbtn">Cancel</button>
-                <span class="psw">Forgot <a href="#">password?</a></span>
-            </div>
-        </form>
-    </div>
-
-    <!-- Register Modal -->
-    <div id="registerModal" class="modal">
-        <form class="modal-content animate" action="./index.html" method="post">
-            <div class="imgcontainer">
-                <span onclick="document.getElementById('registerModal').style.display='none'" class="close" title="Close Modal">&times;</span>
-                <img src="img_avatar2.png" alt="Avatar" class="avatar">
-            </div>
-
-            <div class="container">
-                <label for="rname"><b>Full Name</b></label>
-                <input type="text" placeholder="Enter Full Name" name="rname" required>
-
-                <label for="remail"><b>Email</b></label>
-                <input type="email" placeholder="Enter Email" name="remail" required>
-
-                <label for="rpsw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="rpsw" required>
-
-                <button type="submit">Register</button>
-            </div>
-
-            <div class="container" style="background-color:#f1f1f1">
-                <button type="button" onclick="document.getElementById('registerModal').style.display='none'" class="cancelbtn">Cancel</button>
-            </div>
-        </form>
-    </div>
-
     <footer>
         <div class="footer-text">
-            <p>Copyright © 2022 DigiMedia Co., Ltd. All Rights Reserved.</p>
-            <p>Design: TemplateMo</p>
+            <p>Copyright© 2024. IO institute All Rights Reserved.</p>
+            <p>Design: Bat-Amgalan and Odokaa</p>
         </div>
+
     </footer>
 
     <script src="./src/javascript/main.js"></script>
-
-    <script>
-        // Get the modals
-        var loginModal = document.getElementById('loginModal');
-        var registerModal = document.getElementById('registerModal');
-        var addMemberModal = document.getElementById('addMemberModal');
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function (event) {
-            if (event.target == loginModal) {
-                loginModal.style.display = "none";
-            } else if (event.target == registerModal) {
-                registerModal.style.display = "none";
-            } else if (event.target == addMemberModal) {
-                addMemberModal.style.display = "none";
-            }
-        }
-    </script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script> -->
 </body>
 
 </html>
